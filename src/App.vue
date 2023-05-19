@@ -91,7 +91,8 @@ const functions = reactive({
 onMounted(() => {
   functions.load_trackers_from_storage()
 
-  watch(()=>dict.magnet_link, (new_value: any, old_value: any) => {
+  watch(()=>dict.magnet_link, (new_value: any, old_value: any) => { 
+    old_value
     if (dict.working == false) {
       dict.working = true
       functions.parse_magnet_link(new_value)
@@ -100,6 +101,8 @@ onMounted(() => {
   })
 
   watch(()=>dict.trackers_text, (new_value: any, old_value: any) => {
+    new_value
+    old_value
     if (dict.working == false) {
       dict.working = true
       functions.parse_trackers_text()
